@@ -16,6 +16,9 @@ public class MusicPlayer : MonoBehaviour {
 		AudioClip thisLevelMusic = clips [level];
 		Debug.Log ("Level was loaded: " + thisLevelMusic);
 
+		if (thisLevelMusic == audioSource.clip)
+			return;
+
 		if (thisLevelMusic) {
 			audioSource.clip = thisLevelMusic;
 			audioSource.loop = true;

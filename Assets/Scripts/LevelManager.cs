@@ -3,14 +3,16 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour {
 
-	public float autoLoadingAfter;
+	public float autoLoadingDelay;
 
 	void Start() {
-		Invoke ("LoadNextLevel", autoLoadingAfter);
+		if (autoLoadingDelay != 0) {
+			Invoke ("LoadNextLevel", autoLoadingDelay);
+		}
 	}
 
-	public static void LoadLevel(string name) {
-		//Debug.Log ("Level load requested for: " + name);
+	public void LoadLevel(string name) {
+		Debug.Log ("Level load requested for: " + name);
 		Application.LoadLevel (name);
 	}
 
