@@ -23,7 +23,11 @@ public class MusicPlayer : MonoBehaviour {
 			audioSource.clip = thisLevelMusic;
 			audioSource.loop = true;
 			audioSource.Play ();
+			audioSource.volume = PlayerPrefsManager.GetMasterVolume();
 		}
+	}
 
+	public void SetVolume (float volume) {
+		audioSource.volume = volume;
 	}
 }
