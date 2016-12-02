@@ -14,7 +14,7 @@ public class MusicPlayer : MonoBehaviour {
 
 	void OnLevelWasLoaded(int level) {
 		AudioClip thisLevelMusic = clips [level];
-		Debug.Log ("Level was loaded: " + thisLevelMusic);
+		//Debug.Log ("Level was loaded: " + thisLevelMusic);
 
 		if (thisLevelMusic == audioSource.clip)
 			return;
