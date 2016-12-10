@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Attackers : MonoBehaviour {
-
-	[Range (-1f, 1.5f)]
-	public float walkSpeed;
+	
+	float walkSpeed;
+	GameObject currentTarget;
 
 	// Use this for initialization
 	void Start () {
@@ -27,5 +27,9 @@ public class Attackers : MonoBehaviour {
 
 	public void StrikeCurrentTarget(float damage) {
 		Debug.Log (name + " caused " + damage + " damage");
+	}
+
+	public void Attack(GameObject obj) {
+		currentTarget = obj;
 	}
 }
