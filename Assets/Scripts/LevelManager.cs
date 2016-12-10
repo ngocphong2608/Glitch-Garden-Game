@@ -6,8 +6,10 @@ public class LevelManager : MonoBehaviour {
 	public float autoLoadingDelay;
 
 	void Start() {
-		if (autoLoadingDelay != 0) {
+		if (autoLoadingDelay > 0) {
 			Invoke ("LoadNextLevel", autoLoadingDelay);
+		} else {
+			Debug.Log ("Auto Loading is disabled or Delay is a negative number");
 		}
 	}
 

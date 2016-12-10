@@ -20,7 +20,10 @@ public class OptionsController : MonoBehaviour {
 	}
 
 	void Update() {
-		musicPlayer.SetVolume (volumeSlider.value);
+		if (musicPlayer != null)
+			musicPlayer.SetVolume (volumeSlider.value);
+		else
+			Debug.Log ("MusicPlayer is null");
 	}
 	
 	public void SaveOnExit() {
