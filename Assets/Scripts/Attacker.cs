@@ -6,10 +6,12 @@ public class Attacker : MonoBehaviour {
 	float walkSpeed;
 	GameObject currentTarget;
 	Animator anim;
+	Health health;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		health = GetComponent<Health> ();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +21,15 @@ public class Attacker : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		//Debug.Log (name + " triggered " + col.gameObject.name);
+		GameObject obj = col.gameObject;
+
+		Projectile projectile = obj.GetComponent<Projectile> ();
+		if (projectile != null) {
+			if (health.DealingDamage(projectile.damage)) {
+				Destroy(gameObject);
+			}
+			Destroy(obj);
+		}
 	}
 
 	public void SetSpeed(float speed) {
