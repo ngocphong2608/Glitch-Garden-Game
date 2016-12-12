@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Attackers : MonoBehaviour {
+public class Attacker : MonoBehaviour {
 	
 	float walkSpeed;
 	GameObject currentTarget;
@@ -9,8 +9,6 @@ public class Attackers : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Rigidbody2D myRig = gameObject.AddComponent<Rigidbody2D> ();
-		myRig.isKinematic = true;
 		anim = GetComponent<Animator> ();
 	}
 	
