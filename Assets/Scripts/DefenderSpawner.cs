@@ -10,7 +10,7 @@ public class DefenderSpawner : MonoBehaviour {
 
 	void Start() {
 		parent = GameObject.Find ("Defenders");
-		if (parent != null) {
+		if (parent == null) {
 			parent = new GameObject("Defenders");
 		}
 	}
