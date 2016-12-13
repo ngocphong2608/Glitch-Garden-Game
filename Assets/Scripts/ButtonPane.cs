@@ -4,7 +4,7 @@ using System.Collections;
 public class ButtonPane : MonoBehaviour {
 
 	public GameObject defenderPref;
-	public static GameObject selectedDefender;
+	public static GameObject selectedDefender = null;
 
 	ButtonPane[] buttons;
 
@@ -16,7 +16,7 @@ public class ButtonPane : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (selectedDefender);
+		//Debug.Log (selectedDefender);
 	}
 
 	void OnMouseDown() {
@@ -25,6 +25,6 @@ public class ButtonPane : MonoBehaviour {
 			btn.GetComponent<SpriteRenderer>().color = Color.gray;
 		}
 		GetComponent<SpriteRenderer> ().color = Color.white;
-		selectedDefender = gameObject;
+		selectedDefender = defenderPref;
 	}
 }
