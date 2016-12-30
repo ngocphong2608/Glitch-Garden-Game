@@ -4,8 +4,10 @@ using System.Collections;
 
 public class StarDisplay : MonoBehaviour {
 
-	private int stars = 0;
+	private int stars = 100;
 	private Text starLabel;
+
+	public enum Status {SUCCESS, FAILURE};
 
 	// Use this for initialization
 	void Start () {
@@ -19,9 +21,13 @@ public class StarDisplay : MonoBehaviour {
 		UpdateStarLabel ();
 	}
 
-	public void UseStars(int amount) {
-		stars -= amount;
-		UpdateStarLabel ();
+	public Status UseStars(int amount) {
+		if (amount <= stars) {
+			stars -= amount;
+			UpdateStarLabel ();
+			return Status.SUCCESS;
+		} 
+		return Status.FAILURE;
 	}
 
 	void UpdateStarLabel() {
