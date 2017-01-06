@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ButtonPane : MonoBehaviour {
@@ -6,12 +7,20 @@ public class ButtonPane : MonoBehaviour {
 	public GameObject defenderPref;
 	public static GameObject selectedDefender = null;
 
-	ButtonPane[] buttons;
+	private ButtonPane[] buttons;
+	private Text cost;
 
 	// Use this for initialization
 	void Start () {
 		buttons = FindObjectsOfType<ButtonPane> ();
 		GetComponent<SpriteRenderer> ().color = Color.gray;
+
+		cost = GetComponentInChildren<Text> ();
+		if (cost == null) {
+			Debug.Log ("Can't find cost button");
+		} else {
+			cost.text = defenderPref.GetComponent<Defender>().starCost.ToString();
+		}
 	}
 	
 	// Update is called once per frame

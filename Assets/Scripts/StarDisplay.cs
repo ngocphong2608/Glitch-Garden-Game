@@ -4,7 +4,7 @@ using System.Collections;
 
 public class StarDisplay : MonoBehaviour {
 
-	private int stars = 100;
+	public int stars = 100;
 	private Text starLabel;
 
 	public enum Status {SUCCESS, FAILURE};
