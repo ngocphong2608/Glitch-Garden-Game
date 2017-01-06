@@ -6,7 +6,6 @@ public class GameTime : MonoBehaviour {
 
 	// measure by seconds
 	public float LevelSeconds = 60;
-	public AudioClip clip;
 	
 	private Slider slider;
 	private AudioSource audioSource;
@@ -45,6 +44,10 @@ public class GameTime : MonoBehaviour {
 		} else {
 			slider.value = Time.timeSinceLevelLoad / LevelSeconds;
 		}
+	}
+
+	public float GetTimeValue() {
+		return slider.value;
 	}
 
 	void LoadNextLevel() {
