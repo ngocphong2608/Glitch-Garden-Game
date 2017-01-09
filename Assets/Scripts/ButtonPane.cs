@@ -5,7 +5,7 @@ using System.Collections;
 public class ButtonPane : MonoBehaviour {
 
 	public GameObject defenderPref;
-	public static GameObject selectedDefender = null;
+	public static GameObject selectedDefender;
 
 	private ButtonPane[] buttons;
 	private Text cost;
@@ -21,6 +21,8 @@ public class ButtonPane : MonoBehaviour {
 		} else {
 			cost.text = defenderPref.GetComponent<Defender>().starCost.ToString();
 		}
+
+		selectedDefender = null;
 	}
 	
 	// Update is called once per frame
