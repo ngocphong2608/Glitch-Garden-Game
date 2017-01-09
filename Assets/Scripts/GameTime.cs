@@ -38,6 +38,7 @@ public class GameTime : MonoBehaviour {
 	void Update () {
 
 		if (Time.timeSinceLevelLoad >= LevelSeconds && !isEnd) {
+			RemoveAllAttackers ();
 			audioSource.Play();
 			wonLabel.SetActive(true);
 			Invoke("LoadNextLevel", audioSource.clip.length);
@@ -56,5 +57,12 @@ public class GameTime : MonoBehaviour {
 
 		// if you win this level, then next level will be unlocked
 		PlayerPrefsManager.UnlockLevel (levelIndex + 1);
+	}
+
+	void RemoveAllAttackers() {
+		//Attacker[] atts = GameObject.FindObjectsOfType<Attacker> ();
+		//foreach (Attacker att in atts)
+		//	att.SetSpeed (0);
+		Destroy (GameObject.Find ("Spawners"));
 	}
 }
