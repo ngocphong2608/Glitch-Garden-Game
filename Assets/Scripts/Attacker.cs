@@ -3,9 +3,6 @@ using System.Collections;
 
 public class Attacker : MonoBehaviour {
 
-	[Tooltip ("Numbers of seconds to create a attacker")]
-	public float seenEverySecond;
-
 	float walkSpeed;
 	GameObject currentTarget;
 	Animator anim;
