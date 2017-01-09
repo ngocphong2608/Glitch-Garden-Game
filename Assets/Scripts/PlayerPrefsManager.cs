@@ -34,6 +34,8 @@ public class PlayerPrefsManager : MonoBehaviour {
 
 	public static bool IsLevelUnlocked(int level) {
 		if (level >= 0 && level < Application.levelCount) {
+			if (!PlayerPrefs.HasKey (LEVEL_KEY + level.ToString()))
+			    return false;
 			return PlayerPrefs.GetInt (LEVEL_KEY + level.ToString()) == 1;
 		} else {
 			Debug.LogError ("Trying to unlock level not in build order");
@@ -54,5 +56,7 @@ public class PlayerPrefsManager : MonoBehaviour {
 		return PlayerPrefs.GetFloat (DIFFICULTY_KEY);
 	}
 
-
+	public static void DeleteAll() {
+		PlayerPrefs.DeleteAll ();
+	}
 }

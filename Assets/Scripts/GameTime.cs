@@ -6,6 +6,7 @@ public class GameTime : MonoBehaviour {
 
 	// measure by seconds
 	public float LevelSeconds = 60;
+	public int levelIndex = 0;
 	
 	private Slider slider;
 	private AudioSource audioSource;
@@ -52,5 +53,8 @@ public class GameTime : MonoBehaviour {
 
 	void LoadNextLevel() {
 		levelManager.LoadNextLevel ();
+
+		// if you win this level, then next level will be unlocked
+		PlayerPrefsManager.UnlockLevel (levelIndex + 1);
 	}
 }
