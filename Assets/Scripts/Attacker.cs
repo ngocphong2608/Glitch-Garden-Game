@@ -40,12 +40,14 @@ public class Attacker : MonoBehaviour {
 		//Debug.Log (name + " caused " + damage + " damage");
 		if (currentTarget != null) {
 			Health h = currentTarget.GetComponent<Health> ();
-			bool isDead = h.DealingDamage(damage);
+			bool isDead = h.DealingDamage (damage);
 			if (isDead) {
 				Destroy (currentTarget);
 				currentTarget = null;
-				anim.SetBool("IsAttacking", false);
+				anim.SetBool ("IsAttacking", false);
 			}
+		} else {
+			anim.SetBool ("IsAttacking", false);
 		}
 	}
 
