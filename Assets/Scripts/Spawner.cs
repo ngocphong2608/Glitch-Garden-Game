@@ -75,6 +75,7 @@ public class Spawner : MonoBehaviour
 	{
 		GameObject obj = Instantiate (attPrefs [pos], this.transform.position, Quaternion.identity) as GameObject;
 		obj.transform.parent = this.transform;
+		//Debug.Log (transform.position);
 	}
 
 

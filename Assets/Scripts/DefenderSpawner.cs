@@ -18,23 +18,23 @@ public class DefenderSpawner : MonoBehaviour
 		starDisplay = GameObject.FindObjectOfType<StarDisplay> ();
 	}
 
-	void Update() {
-		if (Input.GetMouseButtonDown (0) ) {
-			Vector2 rawPos = CalculateWorldPointOfMouseClick ();
-			if (IsInCoreGame(rawPos)) {
-				Vector2 roundPos = SnapToGrid (rawPos);
-				
-				if (ButtonPane.selectedDefender != null) {
-					Defender def = ButtonPane.selectedDefender.GetComponent<Defender> ();
-					if (starDisplay.UseStars (def.starCost) == StarDisplay.Status.SUCCESS) {
-						SpawnDefender (roundPos);
-					} else {
-						Debug.Log ("Star is not enough");
-					}
-				}
-			}
-		}
-	}
+//	void Update() {
+//		if (Input.GetMouseButtonDown (0) ) {
+//			Vector2 rawPos = CalculateWorldPointOfMouseClick ();
+//			if (IsInCoreGame(rawPos)) {
+//				Vector2 roundPos = SnapToGrid (rawPos);
+//				
+//				if (ButtonPane.selectedDefender != null) {
+//					Defender def = ButtonPane.selectedDefender.GetComponent<Defender> ();
+//					if (starDisplay.UseStars (def.starCost) == StarDisplay.Status.SUCCESS) {
+//						SpawnDefender (roundPos);
+//					} else {
+//						Debug.Log ("Star is not enough");
+//					}
+//				}
+//			}
+//		}
+//	}
 
 	bool IsInCoreGame (Vector2 p)
 	{
@@ -44,7 +44,19 @@ public class DefenderSpawner : MonoBehaviour
 		return false;
 	}
 
-
+	void OnMouseDown() {
+		Vector2 rawPos = CalculateWorldPointOfMouseClick ();
+		Vector2 roundPos = SnapToGrid (rawPos);
+			
+		if (ButtonPane.selectedDefender != null) {
+			Defender def = ButtonPane.selectedDefender.GetComponent<Defender> ();
+			if (starDisplay.UseStars (def.starCost) == StarDisplay.Status.SUCCESS) {
+				SpawnDefender (roundPos);
+			} else {
+				Debug.Log ("Star is not enough");
+			}
+		}
+	}
 
 	void SpawnDefender (Vector2 roundPos)
 	{
