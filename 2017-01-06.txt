@@ -1,0 +1,36 @@
+Defenders: Trophy, GraveStone, Gnome, Cactus
+Attackers: Fox, Lizard, Piggy
+
+Level 1: Stars: 10, Seconds: 60, Hard (8, 2, 2)
+	 Gnome (hp: 50, price: 10),
+	 Lizard(hp: 40, spawn: 15s, attack: 10)
+Level 2: Stars: 30, Seconds: 90, Hard (10, 1, 1)
+	 Gnome (hp: 50, price: 10), Trophy(hp: 50, price: 20),
+	 Lizard (hp: 40, Spawn: 15s, attack: 10)
+Level 3: Stars: 50, Seconds: 90, Hard (5, 1, 1)
+	 Gnome (hp: 50, price: 10, damage: 10), Trophy(hp: 50, price: 20), 
+	 Lizard (hp: 40, Spawn: 15s, attack: 10), Piggy (hp: 50, Spawn: 15s, attack: 10)
+Level 4: Stars: 50, Seconds: 120, Hard (6, 1, 1)
+	 Gnome (hp: 50, price: 10, damage: 10), Trophy(hp: 50, price: 20), Stone (hp: 150, price: 20)
+	 Lizard (hp: 40, Spawn: 10s, attack: 10), Piggy (hp: 50, Spawn: 15s, attack: 10)
+Level 5: Stars: 90, Seconds: 120,
+	 Gnome (hp: 50, price: 10, damage: 10), Trophy(hp: 50, price: 20), Stone (hp: 150, price: 20)
+	 Lizard (hp: 40, Spawn: 10s, attack: 10), Piggy (hp: 50, Spawn: 15s, attack: 10), Fox (hp: 60, Spawn: 20s, attack: 20)
+Level 6: Stars: 90, Seconds: 150
+	 Gnome (hp: 50, price: 10, damage: 10), Trophy(hp: 50, price: 20), Stone (hp: 100, price: 20), Cactus (hp: 50, price: 20, damage: 30)
+	 Lizard (hp: 40, Spawn: 10s, attack: 10), Piggy (hp: 50, Spawn: 15s, attack: 10), Fox (hp: 60, Spawn: 20s, attack: 10)
+-----------------------------------
+- Build 3 more levels
+- Save game state
+- Stop enemies when player won
+- Fix bug attackers stop moving
+- Remove prefab when player won
+---------------------------------- 09/01
+- Save game state: Done
+- Build 3 more levels: Done
+- Remove prefab when player won: Done.
+- Stop enemies when player won: Done
+- Fix bug attackers stop moving: Done
+----------------------------------
+- Fix all level easy to play
+- Control difficulty

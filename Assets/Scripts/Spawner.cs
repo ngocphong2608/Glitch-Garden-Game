@@ -6,9 +6,12 @@ public class Spawner : MonoBehaviour
 
 	public GameObject[] attPrefs;
 	public float[] seenEverySeconds;
+	public float[] hardStep;
+
 	private GameTime gameTime;
 	// three hard level: 0, 1, 2
 	private bool[] incHard;
+
 
 	// Use this for initialization
 	void Start ()
@@ -20,8 +23,8 @@ public class Spawner : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		//if (attPrefs.Length > 0)
-		//	IncHardLevel ();
+		if (attPrefs.Length > 0)
+			IncHardLevel ();
 
 		for (int i = 0; i < attPrefs.Length; i++) {
 			if (IsTimeToSpawn (i)) {
@@ -33,24 +36,24 @@ public class Spawner : MonoBehaviour
 	void IncHardLevel() {
 		float part = gameTime.GetTimeValue () * 4;
 		if (incHard [0] == false && part >= 1) {
-			IncAllSpawnTime (2);
+			IncAllSpawnTime (hardStep[0]);
 			incHard [0] = true;
 			
 			//Debug.Log (gameTime.GetTimeValue () * 4 + " seconds, " + 1);
 		} else if (incHard [1] == false && part >= 2) {
-			IncAllSpawnTime (2);
+			IncAllSpawnTime (hardStep[1]);
 			incHard [1] = true;
 			
 			//Debug.Log (gameTime.GetTimeValue () * 4 + " seconds, " + 2);
 		} else if (incHard [2] == false && part >= 3) {
-			IncAllSpawnTime (2);
+			IncAllSpawnTime (hardStep[2]);
 			incHard [2] = true;
 			
 			//Debug.Log (gameTime.GetTimeValue () * 4 + " seconds, " + 3);
 		}
 	}
 
-	void IncAllSpawnTime (int d)
+	void IncAllSpawnTime (float d)
 	{
 		for (int i = 0; i < seenEverySeconds.Length; i++) {
 			seenEverySeconds [i] -= d;

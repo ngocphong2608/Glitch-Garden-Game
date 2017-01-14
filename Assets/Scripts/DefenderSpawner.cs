@@ -46,7 +46,10 @@ public class DefenderSpawner : MonoBehaviour
 
 	void OnMouseDown() {
 		Vector2 rawPos = CalculateWorldPointOfMouseClick ();
+//		Debug.Log ("raw " + rawPos);
+
 		Vector2 roundPos = SnapToGrid (rawPos);
+//		Debug.Log ("round " + roundPos);
 			
 		if (ButtonPane.selectedDefender != null) {
 			Defender def = ButtonPane.selectedDefender.GetComponent<Defender> ();
